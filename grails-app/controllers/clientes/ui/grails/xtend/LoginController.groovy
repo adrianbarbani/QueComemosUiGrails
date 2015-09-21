@@ -20,10 +20,18 @@ class LoginController {
 	}
 	
 	def sumar() {
+		def errorMessage = null
 		login.nombreUsuarioABuscar = new String(params.usuario)
 		login.contrasenia = new String(params.contrasenia)
 		this.iniciar()
-		login.autorizarLogin()
+		
+		try{
+		login.autorizarLogin()}
+		catch(Exception e){
+			errorMessage = "Usuario o contraseña incorrectos"
+		}
+		render (view: "index", model: [login: login, errorMessage: errorMessage])
+		
 		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
 		consultas.initSearch()
 		[consultas:consultas]
