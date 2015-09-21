@@ -9,9 +9,11 @@
 </head>
 <body style="font-family: Calibri, Verdana; ">
 	<form method="POST">
-		Usuario: <input type="text" name="usuario" value="${login.nombreUsuarioABuscar}"><br>
-		Contrasenia: <input type="password" name="contrasenia" value="${login.contrasenia}"><br>
-		<g:actionSubmit controller="login" action="sumar" value="Ingresar"/>
+	<div class="panel-heading">
+		Usuario: <input type="text" name="usuario" class="form-control" value="${login.nombreUsuarioABuscar}"><br>
+		Contrasenia: <input type="password" name="contrasenia" class="form-control" value="${login.contrasenia}"><br>
+		<g:actionSubmit controller="login" action="sumar" class="btn btn-primary" value="Ingresar"/>
+		</div>
 	</form>
 </body>
 </html>
