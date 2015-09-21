@@ -13,8 +13,8 @@ class LoginController {
 	]
 	
 	def calculadora = new LoginAppModel()
-	def usuario
-	
+	def consultas
+
 	def index() { 
 		[calculadora: calculadora]
 	}
@@ -24,7 +24,9 @@ class LoginController {
 		calculadora.contrasenia = new String(params.numero2)
 		this.iniciar()
 		calculadora.autorizarLogin()
-		def consultas = new UltimasConsultasAppModel(calculadora.usuarioLogin)
+		consultas = new UltimasConsultasAppModel(calculadora.usuarioLogin)
+		consultas.initSearch()
+		[consultas:consultas]
 	}
 	
 	def iniciar(){

@@ -1,4 +1,9 @@
 <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="layout" content="main" />
+<title>Consultas Recetas</title>
+</head>
 <body>
 <div class="panel-group" id="accordion2">
 				<div class="panel panel-default">
@@ -12,26 +17,26 @@
 							<div id="list-libro" class="content scaffold-list">
 								<table class="table table-striped table-bordered table-hover table-condensed">
 									<thead>
-										<g:sortableColumn property="autor" title="Autor" />
-										<g:sortableColumn property="titulo" title="T&iacute;tulo"/>
-										<g:sortableColumn property="editorial" title="Editorial"/>
-										<g:sortableColumn property="anioPublicacion" title="A&ntilde;o Publicaci&oacute;n" />
+										<g:sortableColumn property="autor" title="Nombre del Plato" />
+										<g:sortableColumn property="titulo" title="Calorias Receta"/>
+										<g:sortableColumn property="editorial" title="Dificultad"/>
+										<g:sortableColumn property="anioPublicacion" title="Temporada" />
 									</thead>
 									<tbody>
-										<g:each in="${libroInstanceList}" status="i"
+										<g:each in="${consultas}" status="i"
 											var="libroInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
-												<td><g:link action="show" id="${libroInstance.id}">
-														${libroInstance.autor}
+												<td><g:link action="show" id="${libroInstance.resultados.nombreDelPlato}">
+														${libroInstance.resultados.nombreDelPlato}
 													</g:link></td>
 												<td>
-													${libroInstance.titulo}
+													${libroInstance.resultados.caloriasReceta}
 												</td>
 												<td>
-													${libroInstance.editorial}
+													${libroInstance.resultados.dificultad}
 												</td>
 												<td>
-													${libroInstance.anioPublicacion}
+													${libroInstance.resultados.temporada}
 												</td>
 											</tr>
 										</g:each>
