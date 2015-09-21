@@ -12,19 +12,19 @@ class LoginController {
 		sumar: 'POST'
 	]
 	
-	def calculadora = new LoginAppModel()
+	def login = new LoginAppModel()
 	def consultas
 
 	def index() { 
-		[calculadora: calculadora]
+		[login: login]
 	}
 	
 	def sumar() {
-		calculadora.nombreUsuarioABuscar = new String(params.numero1)
-		calculadora.contrasenia = new String(params.numero2)
+		login.nombreUsuarioABuscar = new String(params.usuario)
+		login.contrasenia = new String(params.contrasenia)
 		this.iniciar()
-		calculadora.autorizarLogin()
-		consultas = new UltimasConsultasAppModel(calculadora.usuarioLogin)
+		login.autorizarLogin()
+		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
 		consultas.initSearch()
 		[consultas:consultas]
 	}

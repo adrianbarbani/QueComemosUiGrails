@@ -5,38 +5,38 @@
 <title>Consultas Recetas</title>
 </head>
 <body>
-<div class="panel-group" id="accordion2">
+<div class="panel-group" id="accordion">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<a class="accordion-toggle" data-toggle="collapse"
-							data-parent="#accordion2" href="#collapseTwo">Resultados:
+							data-parent="#accordion2" href="#collapseTwo">Estas fueron tus ultimas consultas:
 						</a>
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse in">
 						<div class="panel-body">
-							<div id="list-libro" class="content scaffold-list">
+							<div id="list-recetas" class="content scaffold-list">
 								<table class="table table-striped table-bordered table-hover table-condensed">
 									<thead>
-										<g:sortableColumn property="autor" title="Nombre del Plato" />
-										<g:sortableColumn property="titulo" title="Calorias Receta"/>
-										<g:sortableColumn property="editorial" title="Dificultad"/>
-										<g:sortableColumn property="anioPublicacion" title="Temporada" />
+										<g:sortableColumn property="nombreDelPlato" title="Nombre del Plato" />
+										<g:sortableColumn property="caloriasReceta" title="Calorias Receta"/>
+										<g:sortableColumn property="dificultad" title="Dificultad"/>
+										<g:sortableColumn property="temporada" title="Temporada" />
 									</thead>
 									<tbody>
 										<g:each in="${consultas.resultados}" status="i"
-											var="libroInstance">
+											var="recetaInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
-												<td><g:link action="show" id="${libroInstance.nombreDelPlato}">
-														${libroInstance.nombreDelPlato}
+												<td><g:link action="show" id="${recetaInstance.nombreDelPlato}">
+														${recetaInstance.nombreDelPlato}
 													</g:link></td>
 												<td>
-													${libroInstance.caloriasReceta}
+													${recetaInstance.caloriasReceta}
 												</td>
 												<td>
-													${libroInstance.dificultad}
+													${recetaInstance.dificultad}
 												</td>
 												<td>
-													${libroInstance.temporada}
+													${recetaInstance.temporada}
 												</td>
 											</tr>
 										</g:each>
