@@ -29,7 +29,7 @@ class UltimasConsultasAppModel {
 
 	def void todasLasRecetas() {
 		resultados = new Busqueda(usuario, RepositorioRecetas.getInstance, new MostrarLosPrimerosDiez).filtrar
-		descripcion = "estas son las mas consultadas"
+		descripcion = "Estas son las mas consultadas:"
 	}
 
 	def marcarComoFavorita() {
@@ -38,7 +38,7 @@ class UltimasConsultasAppModel {
 	
 	def void recetasFavoritas() {
 		resultados = usuario.recetasFavoritas
-		descripcion = "Estas son tus recetas Favoritas"
+		descripcion = "Estas son tus recetas Favoritas:"
 	}
 	
 	def initSearch() {
@@ -55,7 +55,7 @@ class UltimasConsultasAppModel {
 	
 	def void mostrarUltimasRecetasConsultadas(){
 		resultados = ultimasConsultadas
-		descripcion = "Estas Fueron las ultimas recetas que mas consultaste"
+		descripcion = "Estas Fueron las ultimas recetas que mas consultaste:"
 	}
 	
 	def void buscar() {

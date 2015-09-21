@@ -5,11 +5,14 @@
 <title>Consultas Recetas</title>
 </head>
 <body>
-<div class="panel-group" id="accordion">
+<div style="width: 90%; padding: 15pt;">
+		<g:render template="titulo" model="['titulo': 'Consulta Recetas']"/>
+	
+	<div class="panel-group" id="accordion">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<a class="accordion-toggle" data-toggle="collapse"
-							data-parent="#accordion2" href="#collapseTwo">Estas fueron tus ultimas consultas:
+							data-parent="#accordion2" href="#collapseTwo">${consultas.descripcion}
 						</a>
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse in">
@@ -46,6 +49,8 @@
 						</div>
 					</div>							
 				</div>
+			<g:actionSubmit controller="login" action="index" class="btn btn-primary" value="Salir"/>
 			</div> 
+</div>
 </body>
 </html>
