@@ -1,1 +1,4 @@
+/bin/
+.settings
+/target_eclipse/
 /classes/

@@ -37,6 +37,8 @@ class UsuariosObjectSet {
 			agregarRutina(new Rutina(10, true))		
 			.build("pacman")
 		
+		var usuario = RecetasObjectSet.INSTANCE.crearUsuario()
+		RecetasObjectSet.INSTANCE.crearRecetas(usuario)
 }
 
 	public static val INSTANCE = new UsuariosObjectSet

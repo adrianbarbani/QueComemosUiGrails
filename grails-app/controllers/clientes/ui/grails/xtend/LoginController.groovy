@@ -1,8 +1,8 @@
 package clientes.ui.grails.xtend
 
 import ar.algo.adriba.appModel.LoginAppModel
+import ar.algo.adriba.appModel.UltimasConsultasAppModel
 import ar.algo.adriba.appModel.UsuariosObjectSet
-import ar.algo.adriba.tp1.Usuario
 
 class LoginController {
 		
@@ -13,7 +13,7 @@ class LoginController {
 	]
 	
 	def calculadora = new LoginAppModel()
-	
+	def usuario
 	
 	def index() { 
 		[calculadora: calculadora]
@@ -24,12 +24,15 @@ class LoginController {
 		calculadora.contrasenia = new String(params.numero2)
 		this.iniciar()
 		calculadora.autorizarLogin()
-		[calculadora: calculadora]
+		def consultas = new UltimasConsultasAppModel(calculadora.usuarioLogin)
 	}
-
+	
 	def iniciar(){
-		//Usuario usuario = RecetasObjectSet.INSTANCE.crearUsuario
+		//usuario = RecetasObjectSet.INSTANCE.crearUsuario()
 		UsuariosObjectSet.INSTANCE.crearUsuarios()
-		//RecetasObjectSet.INSTANCE.crearRecetas(usuario)
-	}
+		//RecetasObjectSet.INSTANCE.crearRecetas()
+
+		}
+	
+	
 }
