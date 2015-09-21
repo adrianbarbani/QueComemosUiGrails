@@ -23,20 +23,20 @@
 										<g:sortableColumn property="anioPublicacion" title="Temporada" />
 									</thead>
 									<tbody>
-										<g:each in="${consultas}" status="i"
+										<g:each in="${consultas.resultados}" status="i"
 											var="libroInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
-												<td><g:link action="show" id="${libroInstance.resultados.nombreDelPlato}">
-														${libroInstance.resultados.nombreDelPlato}
+												<td><g:link action="show" id="${libroInstance.nombreDelPlato}">
+														${libroInstance.nombreDelPlato}
 													</g:link></td>
 												<td>
-													${libroInstance.resultados.caloriasReceta}
+													${libroInstance.caloriasReceta}
 												</td>
 												<td>
-													${libroInstance.resultados.dificultad}
+													${libroInstance.dificultad}
 												</td>
 												<td>
-													${libroInstance.resultados.temporada}
+													${libroInstance.temporada}
 												</td>
 											</tr>
 										</g:each>
