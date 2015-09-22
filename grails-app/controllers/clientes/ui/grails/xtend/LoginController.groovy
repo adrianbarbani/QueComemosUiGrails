@@ -20,10 +20,18 @@ class LoginController {
 	}
 	
 	def sumar() {
+		def errorMessage = null
 		login.nombreUsuarioABuscar = new String(params.usuario)
 		login.contrasenia = new String(params.contrasenia)
 		this.iniciar()
-		login.autorizarLogin()
+		
+		try{
+		login.autorizarLogin()}
+		catch(Exception e){
+			flash.message = "Usuario o Contrasenia Incorrecto"
+		   redirect(action: "index")
+		}
+		
 		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
 		consultas.initSearch()
 		[consultas:consultas]

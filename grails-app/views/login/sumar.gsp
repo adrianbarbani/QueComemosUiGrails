@@ -52,6 +52,7 @@
 			<g:link controller="login" action="index" class="btn btn-primary">
 				Salir
 				</g:link>
+
 			</div> 
 </div>
 </body>
