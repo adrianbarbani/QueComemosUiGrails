@@ -49,7 +49,9 @@
 						</div>
 					</div>							
 				</div>
-			<g:actionSubmit controller="login" action="index" class="btn btn-primary" value="Salir"/>
+			<g:link controller="login" action="index" class="btn btn-primary">
+				Salir
+				</g:link>
 			</div> 
 </div>
 </body>
