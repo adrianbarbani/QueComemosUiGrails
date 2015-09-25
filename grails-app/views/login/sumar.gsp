@@ -20,16 +20,18 @@
 							<div id="list-recetas" class="content scaffold-list">
 								<table class="table table-striped table-bordered table-hover table-condensed">
 									<thead>
-										<g:sortableColumn property="nombreDelPlato" title="Nombre del Plato" />
-										<g:sortableColumn property="caloriasReceta" title="Calorias Receta"/>
-										<g:sortableColumn property="dificultad" title="Dificultad"/>
-										<g:sortableColumn property="temporada" title="Temporada" />
+										<tr>
+											<td>Nombre Del Plato</td>
+											<td>Calorias Receta</td>
+											<td>Dificultad</td>
+											<td>Temporada</td>
+										</tr>
 									</thead>
 									<tbody>
 										<g:each in="${consultas.resultados}" status="i"
 											var="recetaInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
-												<td><g:link action="show" id="${recetaInstance.nombreDelPlato}">
+												<td><g:link  action="showReceta" id="${recetaInstance.nombreDelPlato}">
 														${recetaInstance.nombreDelPlato}
 													</g:link></td>
 												<td>

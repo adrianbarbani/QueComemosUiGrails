@@ -13,12 +13,9 @@
 	<div class="panel-heading">
 	
 	<g:if test="${flash.message}">
-	<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert">
   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  <span class="sr-only">Error:</span>
-			<div class="message">
-				${flash.message}
-			</div>
+  <span class="sr-only">Error:</span><div class="message">${flash.message}</div>
 			</div>
 	</g:if>
 	

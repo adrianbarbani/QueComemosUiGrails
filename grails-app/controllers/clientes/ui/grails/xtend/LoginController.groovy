@@ -3,46 +3,50 @@ package clientes.ui.grails.xtend
 import ar.algo.adriba.appModel.LoginAppModel
 import ar.algo.adriba.appModel.UltimasConsultasAppModel
 import ar.algo.adriba.appModel.UsuariosObjectSet
+import ar.algo.adriba.tp1.Busqueda
 
 class LoginController {
-		
+
 	static scope = "session"
-	
+
 	static allowedMethods = [
 		sumar: 'POST'
 	]
-	
+
+	def busqueda
 	def login = new LoginAppModel()
 	def consultas
 
-	def index() { 
+
+	def index() {
 		[login: login]
 	}
-	
+
 	def sumar() {
 		def errorMessage = null
-		login.nombreUsuarioABuscar = new String(params.usuario)
-		login.contrasenia = new String(params.contrasenia)
+		login.nombreUsuarioABuscar = params.usuario
+		login.contrasenia =params.contrasenia
 		this.iniciar()
-		
+
 		try{
-		login.autorizarLogin()}
+			login.autorizarLogin()
+		}
 		catch(Exception e){
 			flash.message = "Usuario o Contrasenia Incorrecto"
-		   redirect(action: "index")
+			redirect(action: "index")
 		}
-		
+
 		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
 		consultas.initSearch()
 		[consultas:consultas]
 	}
-	
-	def iniciar(){
-		//usuario = RecetasObjectSet.INSTANCE.crearUsuario()
-		UsuariosObjectSet.INSTANCE.crearUsuarios()
-		//RecetasObjectSet.INSTANCE.crearRecetas()
 
-		}
-	
-	
+	def showReceta(String nombre){
+		busqueda = new Busqueda(login.usuarioLogin)
+		[Receta:busqueda.buscarRecetaPorNombre(nombre)]
+	}
+
+	def iniciar(){
+		UsuariosObjectSet.INSTANCE.crearUsuarios()
+	}
 }
