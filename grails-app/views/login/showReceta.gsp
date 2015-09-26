@@ -12,6 +12,7 @@
 			<div class="modal-body">
 				
 				<div class="center-block"  style=" border-style: solid; width: 95%" >
+							<div class="center-block" style="width: 98%">
 							<h4>
 								${Receta.unaReceta.nombreDelPlato}
 							</h4>
@@ -19,8 +20,9 @@
 								<li>
 									${Receta.unaReceta.caloriasReceta} calorias
 								</li>
-								<li>Creado por vos</li>
+								<li>${Receta.propietario}</li>
 							</ul>
+							</div>
 					</div>
 			
 			<div  class="center-block" style="width: 95%" >
@@ -43,7 +45,13 @@
 						<tr>
 							<td>
 								<strong>Ingredientes</strong>
-								
+							</td>
+							<td>
+							<strong>Condimentos</strong>
+							</td>
+						</tr>
+						<tr>								
+							<td>
 								<table class="table table-bordered">
 									<thead>
 										<tr>
@@ -66,19 +74,17 @@
 									</tbody>
 								</table>
 							</td>
-							
 							<td>
-							<strong>Condimentos</strong>
+									<div  class="center-block" style=" border-style: solid; width: 90%; height:100%">
 									<g:each in="${Receta.unaReceta.condimentos}" status="i"
 											var="recetaCondimento">
 											<p>
 													${recetaCondimento.nombre}
 											</p>
 									</g:each>	
-								
-								
+									</div>
 							</td>
-						</tr>
+							</tr>	
 						
 					</table>
 			</div>	

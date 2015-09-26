@@ -60,7 +60,7 @@ class RecetasObjectSet {
 			.setearCalorias(8000)
 			.setearTemporadas("Todo el año")
 			.setearDificultad("Dificil")
-			.setearPreparacion("Pasar la carne por huevo, harina y pan rallado. Freir con el aceite por 10 minutos. Luego colocarle la salsa de tomate, el queso y  calentar")
+			.setearPreparacion("Pasar la carne por huevo, harina y pan rallado. Freir con el aceite por 10 minutos. Luego colocarle la salsa de tomate, el queso y  calentar en horno a temperatura media por otros 5, hasta ver que el queso se encuentra derretido. Cuando esto ocurra servir con un acompaniamiento a eleccion")
 			.build
 
 	new RecetaBuilder()
