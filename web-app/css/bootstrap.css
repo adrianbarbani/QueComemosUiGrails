@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+.panel {
+ width: 100%;
+ text-align: center;
+}
+
+.panel-heading {
+ background-color: #303FA9;
+ color: #FFFFFF;
+ height: 30px;
+ font-size: 21px;
+}
+
+.gh2014 {
+ width: 50%;
+ height: 30px;
+ background-color: #303FA9;
+ border-color:#33CC33;
+ border-style: solid; 
+}
+
+.center {
+ margin-left: 0;
+ margin-right: 0;
+ margin: auto;
+}

@@ -1,5 +1,105 @@
-<div>
-${Receta.unaReceta.nombreDelPlato}
-${Receta.unaReceta.caloriasReceta}
-
-</div>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="layout" content="main" />
+</head>
+<body>
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Detalle de Receta</h4>
+			</div>
+			<div class="modal-body">
+				
+				<div class="center-block"  style=" border-style: solid; width: 95%" >
+							<h4>
+								${Receta.unaReceta.nombreDelPlato}
+							</h4>
+							<ul class="list-inline">
+								<li>
+									${Receta.unaReceta.caloriasReceta} calorias
+								</li>
+								<li>Creado por vos</li>
+							</ul>
+					</div>
+			
+			<div  class="center-block" style="width: 95%" >
+					<table style="width: 100%; height:90%">
+						
+						<tr>
+							<td>
+								<strong>Dificultad</strong>
+								<p>${Receta.unaReceta.dificultad}</p>
+							</td>
+							
+							
+							<td>
+								<strong>Temporada</strong>
+								<p>${Receta.unaReceta.temporada}</p>
+							</td>
+						</tr>
+						
+						
+						<tr>
+							<td>
+								<strong>Ingredientes</strong>
+								
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+										<th>Dosis</th>
+										<th>Ingredientes</th>
+										</tr>
+									</thead>
+									<tbody>
+										<g:each in="${Receta.unaReceta.ingredientes}" status="i"
+											var="recetaIngrediente">
+											<tr>
+												<td>
+													${recetaIngrediente.cantidad}
+												</td>
+												<td>
+													${recetaIngrediente.nombre}
+												</td>
+											</tr>
+										</g:each>
+									</tbody>
+								</table>
+							</td>
+							
+							<td>
+							<strong>Condimentos</strong>
+									<g:each in="${Receta.unaReceta.condimentos}" status="i"
+											var="recetaCondimento">
+											<p>
+													${recetaCondimento.nombre}
+											</p>
+									</g:each>	
+								
+								
+							</td>
+						</tr>
+						
+					</table>
+			</div>	
+				
+			</div>
+			
+			
+			
+			<div  class="center-block" style=" border-style: solid; width: 90%; background-color: #CDCDCD" >
+				
+				<p class="text-center">${Receta.unaReceta.explicacionDeLaPreparacion}</p>
+				
+			</div>
+			
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+				<button type="button" class="btn btn-primary">Copiar Receta</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</body>
+</html>

@@ -39,6 +39,7 @@ class RecetasObjectSet {
 			.agregarIngrediente(harina)
 			.agregarIngrediente(huevo)
 			.agregarIngrediente(aceite)
+			.agregarIngrediente(oregano)
 			.setearTemporadas("Todo el año")
 			.agregarIngrediente(panRallado)
 			.agregarIngrediente(carne)

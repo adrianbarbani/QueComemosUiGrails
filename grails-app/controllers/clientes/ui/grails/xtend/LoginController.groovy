@@ -42,9 +42,9 @@ class LoginController {
 		[consultas:consultas]
 	}
 
-	def showReceta(String nombre){
+	def showReceta(String id){
 		busqueda = new Busqueda(login.usuarioLogin)
-		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(nombre),login.usuarioLogin)
+		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(id),login.usuarioLogin)
 		[Receta:detalleReceta]
 	}
 

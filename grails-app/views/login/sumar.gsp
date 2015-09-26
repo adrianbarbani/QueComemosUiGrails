@@ -31,7 +31,7 @@
 										<g:each in="${consultas.resultados}" status="i"
 											var="recetaInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
-												<td><g:link  action="showReceta" id="${recetaInstance.nombreDelPlato}">
+												<td><g:link action="showReceta" id="${recetaInstance.nombreDelPlato}">
 														${recetaInstance.nombreDelPlato}
 													</g:link></td>
 												<td>
