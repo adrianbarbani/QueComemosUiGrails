@@ -1,5 +1,6 @@
 package clientes.ui.grails.xtend
 
+import ar.algo.adriba.appModel.DetalleDeRecetaAppModel
 import ar.algo.adriba.appModel.LoginAppModel
 import ar.algo.adriba.appModel.UltimasConsultasAppModel
 import ar.algo.adriba.appModel.UsuariosObjectSet
@@ -43,7 +44,8 @@ class LoginController {
 
 	def showReceta(String nombre){
 		busqueda = new Busqueda(login.usuarioLogin)
-		[Receta:busqueda.buscarRecetaPorNombre(nombre)]
+		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(nombre),login.usuarioLogin)
+		[Receta:detalleReceta]
 	}
 
 	def iniciar(){

@@ -1,5 +1,5 @@
 <div>
-${Receta.nombreDelPlato}
-${Receta.caloriasReceta}
+${Receta.unaReceta.nombreDelPlato}
+${Receta.unaReceta.caloriasReceta}
 
 </div>
