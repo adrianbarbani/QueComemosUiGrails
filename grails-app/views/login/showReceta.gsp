@@ -84,6 +84,22 @@
 									</g:each>	
 									</div>
 							</td>
+							</tr>
+							<tr>
+								<td>
+								<g:checkBox name="Favorita" value="${Receta.favorita}"/> Agregar Receta a mis favoritas
+								</td>
+								<td>
+									<strong>Condiciones Preexistentes</strong>
+									<div  class="center-block" style=" border-style: solid; width: 90%; height:100%">
+									<g:each in="${Receta.unaReceta.paraQueCondicionesSoyInadecuada}" status="i"
+											var="recetaCondiciones">
+											<p>
+													${recetaCondiciones.nombre}
+											</p>
+									</g:each>	
+									</div>
+								</td>
 							</tr>	
 						
 					</table>
