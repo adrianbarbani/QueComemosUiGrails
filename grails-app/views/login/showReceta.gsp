@@ -100,8 +100,13 @@
 			</div>
 			
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-				<button type="button" class="btn btn-primary">Copiar Receta</button>
+					<g:link controller='login' action="volver" class="btn btn-primary">Volver</g:link>
+				
+				<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+				<button type="button" class="btn btn-primary">Copiar Receta</button> -->
+				
+				<g:link controller= "login" action="copiarLaReceta" class="btn btn-primary" id="${Receta.unaReceta.nombreDelPlato}">Copiar</g:link>
+				
 			</div>
 		</div>
 		<!-- /.modal-content -->
