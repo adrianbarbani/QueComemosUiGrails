@@ -11,6 +11,10 @@ class CopiarRecetaAppModel {
 	String nombreDeCopia
 	Usuario usuario
 
+	new(){
+		
+	}
+	
 	new(Receta unaReceta, Usuario unUsuario) {
 		receta = unaReceta
 		usuario = unUsuario

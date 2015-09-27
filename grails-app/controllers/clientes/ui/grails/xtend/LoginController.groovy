@@ -1,5 +1,6 @@
 package clientes.ui.grails.xtend
 
+import ar.algo.adriba.appModel.CopiarRecetaAppModel
 import ar.algo.adriba.appModel.DetalleDeRecetaAppModel
 import ar.algo.adriba.appModel.LoginAppModel
 import ar.algo.adriba.appModel.UltimasConsultasAppModel
@@ -13,9 +14,11 @@ class LoginController {
 	static allowedMethods = [
 		sumar: 'POST'
 	]
-
+	
+	CopiarRecetaAppModel copiarReceta
 	def busqueda
 	def login = new LoginAppModel()
+	//def copiarReceta = new CopiarRecetaAppModel()
 	def consultas
 
 
@@ -46,6 +49,28 @@ class LoginController {
 		busqueda = new Busqueda(login.usuarioLogin)
 		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(id),login.usuarioLogin)
 		[Receta:detalleReceta]
+	}
+	
+	def copiarLaReceta(String id){ 
+		busqueda = new Busqueda(login.usuarioLogin)
+		copiarReceta = new CopiarRecetaAppModel (busqueda.buscarRecetaPorNombre(id), login.usuarioLogin)
+		[Receta:copiarReceta]
+	}
+	
+	def copiar(String id){
+		copiarReceta.nombreDeCopia = id
+		copiarReceta.copiarReceta()
+		
+		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
+		consultas.initSearch()
+		
+		render(view: "sumar", model: [consultas:consultas])
+	}
+	
+	def volver(){
+		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
+		consultas.initSearch()
+		render(view: "sumar", model: [consultas:consultas])
 	}
 
 	def iniciar(){
