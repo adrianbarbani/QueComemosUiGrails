@@ -31,9 +31,25 @@
 										<g:each in="${consultas.resultados}" status="i"
 											var="recetaInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
-												<td><g:link action="showReceta" id="${recetaInstance.nombreDelPlato}">
+												<td>
+												
+												<g:if test="${recetaInstance.sosPublica()}">
+												<g:link action="showReceta" id="${recetaInstance.nombreDelPlato}">
 														${recetaInstance.nombreDelPlato}
-													</g:link></td>
+													</g:link>
+												</g:if>
+												
+												<g:else>
+												<g:link action="showReceta" id="${recetaInstance.nombreDelPlato}" style="color:#FF0000">
+														${recetaInstance.nombreDelPlato}
+														</g:link>
+												</g:else>
+											<!-- 
+												<g:link action="showReceta" id="${recetaInstance.nombreDelPlato}">
+														${recetaInstance.nombreDelPlato}
+													</g:link>
+													 -->
+												</td>
 												<td>
 													${recetaInstance.caloriasReceta}
 												</td>
