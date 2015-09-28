@@ -6,6 +6,7 @@ import ar.algo.adriba.appModel.LoginAppModel
 import ar.algo.adriba.appModel.UltimasConsultasAppModel
 import ar.algo.adriba.appModel.UsuariosObjectSet
 import ar.algo.adriba.tp1.Busqueda
+import ar.algo.adriba.tp1.Usuario
 
 class LoginController {
 
@@ -15,10 +16,10 @@ class LoginController {
 		sumar: 'POST'
 	]
 	
+	Usuario usuarioLogueado
 	CopiarRecetaAppModel copiarReceta
 	def busqueda
 	def login = new LoginAppModel()
-	//def copiarReceta = new CopiarRecetaAppModel()
 	def consultas
 
 
@@ -40,35 +41,36 @@ class LoginController {
 			redirect(action: "index")
 		}
 
-		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
+		usuarioLogueado = login.usuarioLogin
+		consultas = new UltimasConsultasAppModel(usuarioLogueado)
 		consultas.initSearch()
 		[consultas:consultas]
 	}
 
 	def showReceta(String id){
-		busqueda = new Busqueda(login.usuarioLogin)
-		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(id),login.usuarioLogin)
+		busqueda = new Busqueda(usuarioLogueado)
+		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(id),usuarioLogueado)
 		[Receta:detalleReceta]
 	}
 	
 	def copiarLaReceta(String id){ 
-		busqueda = new Busqueda(login.usuarioLogin)
-		copiarReceta = new CopiarRecetaAppModel (busqueda.buscarRecetaPorNombre(id), login.usuarioLogin)
+		busqueda = new Busqueda(usuarioLogueado)
+		copiarReceta = new CopiarRecetaAppModel (busqueda.buscarRecetaPorNombre(id), usuarioLogueado)
 		[Receta:copiarReceta]
 	}
 	
-	def copiar(String id){
-		copiarReceta.nombreDeCopia = id
+	def copiar(){
+		copiarReceta.nombreDeCopia = params.nombreDeCopia
 		copiarReceta.copiarReceta()
 		
-		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
+		consultas = new UltimasConsultasAppModel(usuarioLogueado)
 		consultas.initSearch()
 		
 		render(view: "sumar", model: [consultas:consultas])
 	}
 	
 	def volver(){
-		consultas = new UltimasConsultasAppModel(login.usuarioLogin)
+		consultas = new UltimasConsultasAppModel(usuarioLogueado)
 		consultas.initSearch()
 		render(view: "sumar", model: [consultas:consultas])
 	}
