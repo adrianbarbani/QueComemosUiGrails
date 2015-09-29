@@ -87,7 +87,7 @@
 							</tr>
 							<tr>
 								<td>
-								<g:checkBox disabled="true" name="Favorita" value="${Receta.favorita}"/> Agregar Receta a mis favoritas
+								<g:checkBox disabled="true" name="Favorita" value="${consulta.filtrosAplicados}"/> Agregar Receta a mis favoritas
 								</td>
 								<td>
 									<strong>Condiciones Preexistentes</strong>

@@ -6,6 +6,8 @@ import ar.algo.adriba.appModel.LoginAppModel
 import ar.algo.adriba.appModel.UltimasConsultasAppModel
 import ar.algo.adriba.appModel.UsuariosObjectSet
 import ar.algo.adriba.tp1.Busqueda
+import ar.algo.adriba.tp1.RepoDeTemporadas
+import ar.algo.adriba.tp1.RepoDificultades
 import ar.algo.adriba.tp1.Usuario
 
 class LoginController {
@@ -19,10 +21,14 @@ class LoginController {
 	Usuario usuarioLogueado
 	CopiarRecetaAppModel copiarReceta
 	def busqueda
+	def busquedaPorParametros
 	def login = new LoginAppModel()
 	def consultas
-
-
+	def repoDeDificultades = new RepoDificultades()
+	def repoDeTemporadas= new RepoDeTemporadas()
+	def caloriasDesde
+	def caloriasHasta
+	
 	def index() {
 		[login: login]
 	}
@@ -44,7 +50,7 @@ class LoginController {
 		usuarioLogueado = login.usuarioLogin
 		consultas = new UltimasConsultasAppModel(usuarioLogueado)
 		consultas.initSearch()
-		[consultas:consultas]
+		[consultas:consultas, repoDeDificultades:repoDeDificultades, repoDeTemporadas:repoDeTemporadas]
 	}
 
 	def showReceta(String id){
@@ -75,6 +81,19 @@ class LoginController {
 		render(view: "sumar", model: [consultas:consultas])
 	}
 
+	def buscarPorParametros(){
+		busquedaPorParametros = new UltimasConsultasAppModel(usuarioLogueado)
+		busquedaPorParametros.caloriasDesde = new Integer(params.caloriasDesde)
+		busquedaPorParametros.caloriasHasta = new Integer(params.caloriasHasta)
+		busquedaPorParametros.nombre=params.nombreReceta
+		busquedaPorParametros.dificultadSeleccionada=params.dificultad
+		busquedaPorParametros.temporadaSeleccionada=params.temporada
+		busquedaPorParametros.ingredienteABuscar=params.ingrediente
+		def resultadoBusqueda = busquedaPorParametros.buscar()	
+		render(view:"sumar", model:[consultas:resultadoBusqueda])
+	}
+	
+	
 	def iniciar(){
 		UsuariosObjectSet.INSTANCE.crearUsuarios()
 	}
