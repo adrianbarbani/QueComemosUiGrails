@@ -42,7 +42,7 @@ grails.project.dependency.resolution = {
 
 	dependencies { // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 		build 'org.eclipse.xtend:org.eclipse.xtend.lib:2.7.3'
-		build "org.uqbar-project:uqbar-domain:3.4-SNAPSHOT"
+		build "org.uqbar-project:uqbar-domain:3.5.0"
 		build "joda-time:joda-time:2.8"
 	}
 

@@ -87,7 +87,7 @@
 							</tr>
 							<tr>
 								<td>
-								<g:checkBox name="Favorita" value="${Receta.favorita}"/> Agregar Receta a mis favoritas
+								<g:checkBox disabled="true" name="Favorita" value="${Receta.favorita}"/> Agregar Receta a mis favoritas
 								</td>
 								<td>
 									<strong>Condiciones Preexistentes</strong>
@@ -121,7 +121,7 @@
 				<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
 				<button type="button" class="btn btn-primary">Copiar Receta</button> -->
 				
-				<g:link controller= "login" action="copiarLaReceta" class="btn btn-primary">Copiar</g:link>
+				<g:link controller= "login" action="copiarLaReceta" class="btn btn-primary" id="${Receta.unaReceta.nombreDelPlato}">Copiar</g:link>
 				
 			</div>
 		</div>

@@ -13,3 +13,11 @@
 *= require_tree .
 *= require_self
 */
+
+
+.publica {
+	
+}
+.privada {
+	color: #FF0000;	
+}

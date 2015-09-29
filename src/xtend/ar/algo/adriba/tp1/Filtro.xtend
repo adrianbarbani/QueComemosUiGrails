@@ -5,7 +5,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 abstract class Filtro {
-
+//a
 	String nombreFiltro
 	
 	def List<Receta> filtrar(List<Receta> recetas, Persona persona)
