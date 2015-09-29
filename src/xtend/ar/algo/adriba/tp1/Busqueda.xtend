@@ -104,14 +104,14 @@ class Busqueda {
 		receta.get(0)
 	}
 	
-	def buscarReceta(String nombre, String dificultad, String temporada, String ingrediente, int caloriaDesde, int caloriaHasta) {
+	def buscarReceta(String nombre, String dificultad, String temporada, String ingrediente, Integer caloriaDesde, Integer caloriaHasta) {
 		pasarPorFiltros(this.recetasQuePuedeVer.filter[receta|
 			this.match(nombre, receta.nombre) && this.match(dificultad, receta.dificultad) && this.match(temporada, receta.temporada) && this.contiene(ingrediente,receta) && 
 			this.tieneMasCalorias(caloriaDesde, receta) && this.tieneMenosCalorias(caloriaHasta, receta)
 		].toList)//ver lo de los filtros
 	}
 	
-	def tieneMenosCalorias(int i, Receta receta) {
+	def tieneMenosCalorias(Integer i, Receta receta) {
 		if (i==0){
 			true
 		}else{
@@ -119,7 +119,7 @@ class Busqueda {
 		}
 	}
 	
-	def boolean tieneMasCalorias(int i, Receta receta) {
+	def boolean tieneMasCalorias(Integer i, Receta receta) {
 		if (i==0){
 			true
 		}else{

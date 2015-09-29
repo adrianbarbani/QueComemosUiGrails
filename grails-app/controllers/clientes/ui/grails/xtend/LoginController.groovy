@@ -83,8 +83,8 @@ class LoginController {
 
 	def buscarPorParametros(){
 		busquedaPorParametros = new UltimasConsultasAppModel(usuarioLogueado)
-		busquedaPorParametros.caloriasDesde = new Integer(params.caloriasDesde)
-		busquedaPorParametros.caloriasHasta = new Integer(params.caloriasHasta)
+		busquedaPorParametros.caloriasDesde = params.caloriasDesde? new Integer (params.caloriasDesde):0
+		busquedaPorParametros.caloriasHasta = params.caloriasHasta? new Integer(params.caloriasHasta):0
 		busquedaPorParametros.nombre=params.nombreReceta
 		busquedaPorParametros.dificultadSeleccionada=params.dificultad
 		busquedaPorParametros.temporadaSeleccionada=params.temporada

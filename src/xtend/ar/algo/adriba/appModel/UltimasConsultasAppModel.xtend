@@ -19,8 +19,8 @@ class UltimasConsultasAppModel {
 	String dificultadSeleccionada
 	String temporadaSeleccionada
 	String ingredienteABuscar
-	int caloriasDesde
-	int caloriasHasta
+	Integer caloriasDesde
+	Integer caloriasHasta
 	Usuario usuario
 	
 	new(Usuario usuario) {

@@ -24,29 +24,29 @@
 							<div class="row">
   								<div class="col-md-6">
 									<label>Nombre de la Receta</label> 
-									<input type="text" name="nombreReceta" id="nombreReceta" class="form-control" placeholder="Contiene..." value="${consultas.nombre}"> 
+									<input type="text" name="nombreReceta" id="nombreReceta" class="form-control" placeholder="Contiene..." value="${consultas?.nombre}"> 
   								</div>
   								<div class="col-md-6">
 									<label>Calorias</label> 
 									<ul class="list-inline">
 								<li>
-									<input type="number" class="form-control" name="caloriasDesde" id="caloriasDesde" placeholder="Desde" value="${consultas.caloriasDesde}">									
+									<input type="number" class="form-control" name="caloriasDesde" id="caloriasDesde" placeholder="Desde" value="${consultas?.caloriasDesde}">									
 								</li>
 								<li>
-									<input type="number" class="form-control" name="caloriasHasta" id="caloriasHasta" placeholder="hasta" value="${consultas.caloriasHasta}"></li>
+									<input type="number" class="form-control" name="caloriasHasta" id="caloriasHasta" placeholder="hasta" value="${consultas?.caloriasHasta}"></li>
 								</ul>
   								</div>
   								<div class="col-md-6">
 									<label>Dificultad</label> 
-									<g:select name="dificultad" from="${repoDeDificultades.todasLasDificultades}"/>
+									<g:select name="dificultad" from="${repoDeDificultades?.todasLasDificultades}"/>
   								</div>
   								<div class="col-md-6">
 									<label>Temporada</label> 
-									<g:select name="temporada" from="${repoDeTemporadas.todasLasTemporadas}"/>
+									<g:select name="temporada" from="${repoDeTemporadas?.todasLasTemporadas}"/>
   								</div>
   								<div class="col-md-6">
 									<label>Que Contenga Ingrediente</label> 
-									<input type="text" name="ingrediente" id="ingrediente" class="form-control" placeholder="Contiene..." value="${consultas.ingredienteABuscar}"> 
+									<input type="text" name="ingrediente" id="ingrediente" class="form-control" placeholder="Contiene..." value="${consultas?.ingredienteABuscar}"> 
   								</div>
   								<div class="col-md-6">
 									<g:checkBox disabled="true" name="filtroDeUsuario" value="${consultas}"/> Aplicar filtros de usuario
@@ -54,9 +54,8 @@
   								
   								<div class="col-md-12">
 									<br />
-									<g:link controller="login" action="buscarPorParametros" class="btn btn-primary">
-										Buscar
-								</g:link>
+									<g:actionSubmit controller="login" action="buscarPorParametros" class="btn btn-primary" value="Buscar"/>
+										
 								</div>
 							</div>
 						</form>
