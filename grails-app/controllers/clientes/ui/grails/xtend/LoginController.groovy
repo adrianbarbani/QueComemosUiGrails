@@ -57,7 +57,7 @@ class LoginController {
 		def detalleReceta = new DetalleDeRecetaAppModel(busqueda.buscarRecetaPorNombre(id),usuarioLogueado)
 		[Receta:detalleReceta]
 	}
-	
+	//asd
 	def copiarLaReceta(String id){ 
 		busqueda = new Busqueda(usuarioLogueado)
 		copiarReceta = new CopiarRecetaAppModel (busqueda.buscarRecetaPorNombre(id), usuarioLogueado)
