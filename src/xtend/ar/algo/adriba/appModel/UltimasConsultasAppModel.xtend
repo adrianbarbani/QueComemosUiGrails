@@ -15,12 +15,12 @@ class UltimasConsultasAppModel {
 	List<Receta> ultimasConsultadas = newArrayList
 	boolean filtrosAplicados = false
 	String descripcion
-	String nombre
+	String nombre 
 	String dificultadSeleccionada
-	String temporadaSeleccionada
+	String temporadaSeleccionada 
 	String ingredienteABuscar
-	Integer caloriasDesde
-	Integer caloriasHasta
+	int caloriasDesde 
+	int caloriasHasta
 	Usuario usuario
 	
 	new(Usuario usuario) {
@@ -59,7 +59,7 @@ class UltimasConsultasAppModel {
 	}
 	
 	def void buscar() {
-		resultados= new Busqueda(usuario, RepositorioRecetas.getInstance,filtros).buscarReceta(nombre, dificultadSeleccionada, temporadaSeleccionada, ingredienteABuscar, caloriasDesde, caloriasHasta)
+		resultados= new Busqueda(usuario, RepositorioRecetas.getInstance,filtros).buscarReceta(nombre, dificultadSeleccionada, temporadaSeleccionada, null, caloriasDesde, caloriasHasta)
 	}
 	
 	def filtros() {

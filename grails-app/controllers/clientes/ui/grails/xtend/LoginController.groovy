@@ -26,8 +26,7 @@ class LoginController {
 	def consultas
 	def repoDeDificultades = new RepoDificultades()
 	def repoDeTemporadas= new RepoDeTemporadas()
-	def caloriasDesde
-	def caloriasHasta
+	
 	
 	def index() {
 		[login: login]
@@ -82,15 +81,17 @@ class LoginController {
 	}
 
 	def buscarPorParametros(){
-		busquedaPorParametros = new UltimasConsultasAppModel(usuarioLogueado)
-		busquedaPorParametros.caloriasDesde = params.caloriasDesde? new Integer (params.caloriasDesde):0
-		busquedaPorParametros.caloriasHasta = params.caloriasHasta? new Integer(params.caloriasHasta):0
-		busquedaPorParametros.nombre=params.nombreReceta
-		busquedaPorParametros.dificultadSeleccionada=params.dificultad
-		busquedaPorParametros.temporadaSeleccionada=params.temporada
-		busquedaPorParametros.ingredienteABuscar=params.ingrediente
-		def resultadoBusqueda = busquedaPorParametros.buscar()	
-		render(view:"sumar", model:[consultas:resultadoBusqueda])
+		consultas = new UltimasConsultasAppModel(usuarioLogueado)
+		consultas.caloriasDesde = params.caloriasDesde? new Integer (params.caloriasDesde):0
+		consultas.caloriasHasta = params.caloriasHasta? new Integer(params.caloriasHasta):0
+		consultas.nombre= params.nombreReceta
+		consultas.dificultadSeleccionada=params.dificultad
+		consultas.temporadaSeleccionada=params.temporada
+		consultas.ingredienteABuscar= params.ingrediente
+		consultas.buscar()
+		
+	
+		render(view:"sumar", model:[consultas:consultas, repoDeDificultades:repoDeDificultades, repoDeTemporadas:repoDeTemporadas])
 	}
 	
 	

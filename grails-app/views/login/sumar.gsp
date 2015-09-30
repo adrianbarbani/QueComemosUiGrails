@@ -49,7 +49,7 @@
 									<input type="text" name="ingrediente" id="ingrediente" class="form-control" placeholder="Contiene..." value="${consultas?.ingredienteABuscar}"> 
   								</div>
   								<div class="col-md-6">
-									<g:checkBox disabled="true" name="filtroDeUsuario" value="${consultas}"/> Aplicar filtros de usuario
+									<g:checkBox disabled="false" name="filtroDeUsuario" value="${consultas}"/> Aplicar filtros de usuario
   								</div>
   								
   								<div class="col-md-12">
@@ -68,7 +68,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<a class="accordion-toggle" data-toggle="collapse"
-							data-parent="#accordion2" href="#collapseTwo">${consultas.descripcion}
+							data-parent="#accordion2" href="#collapseTwo">${consultas?.descripcion}
 						</a>
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse in">
@@ -84,22 +84,22 @@
 										</tr>
 									</thead>
 									<tbody>
-										<g:each in="${consultas.resultados}" status="i"
+										<g:each in="${consultas?.resultados}" status="i"
 											var="recetaInstance">
 											<tr class="${(i % 2) == 0 ? 'info' : ''}">
 												<td>
 													<g:link action="showReceta" id="${recetaInstance.nombreDelPlato}" class="${recetaInstance.sosPublica() ? "publica" : "privada" }">
-														${recetaInstance.nombreDelPlato}
+														${recetaInstance?.nombreDelPlato}
 													</g:link>
 												</td>
 												<td>
-													${recetaInstance.caloriasReceta}
+													${recetaInstance?.caloriasReceta}
 												</td>
 												<td>
-													${recetaInstance.dificultad}
+													${recetaInstance?.dificultad}
 												</td>
 												<td>
-													${recetaInstance.temporada}
+													${recetaInstance?.temporada}
 												</td>
 											</tr>
 										</g:each>
