@@ -24,13 +24,19 @@
 							<div class="row">
   								<div class="col-md-6">
 									<label>Nombre de la Receta</label> 
-									<input type="text" name="nombreReceta" id="nombreReceta" class="form-control" placeholder="Contiene..." value="${consultas?.nombre}"> 
+									<input type="text" name="nombreReceta" id="nombreReceta" class="form-control" placeholder="Nombre" value="${consultas?.nombre}"> 
   								</div>
   								<div class="col-md-6">
 									<label>Calorias</label> 
 									<ul class="list-inline">
 								<li>
+								<strong>Desde:</strong>
+								</li>
+								<li>
 									<input type="number" class="form-control" name="caloriasDesde" id="caloriasDesde" placeholder="Desde" value="${consultas?.caloriasDesde}">									
+								</li>
+								<li>
+								<strong>Hasta:</strong>
 								</li>
 								<li>
 									<input type="number" class="form-control" name="caloriasHasta" id="caloriasHasta" placeholder="hasta" value="${consultas?.caloriasHasta}"></li>
@@ -68,7 +74,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<a class="accordion-toggle" data-toggle="collapse"
-							data-parent="#accordion2" href="#collapseTwo">${consultas?.descripcion}
+							data-parent="#accordion2" href="#collapseTwo">${consultas?.descripcion} 
 						</a>
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse in">

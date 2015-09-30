@@ -71,13 +71,13 @@ class LoginController {
 		consultas = new UltimasConsultasAppModel(usuarioLogueado)
 		consultas.initSearch()
 		
-		render(view: "sumar", model: [consultas:consultas])
+		render(view: "sumar", model:[consultas:consultas, repoDeDificultades:repoDeDificultades, repoDeTemporadas:repoDeTemporadas])
 	}
 	
 	def volver(){
 		consultas = new UltimasConsultasAppModel(usuarioLogueado)
 		consultas.initSearch()
-		render(view: "sumar", model: [consultas:consultas])
+		render(view: "sumar", model:[consultas:consultas, repoDeDificultades:repoDeDificultades, repoDeTemporadas:repoDeTemporadas])
 	}
 
 	def buscarPorParametros(){

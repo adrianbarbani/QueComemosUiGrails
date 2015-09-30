@@ -59,7 +59,7 @@ class UltimasConsultasAppModel {
 	}
 	
 	def void buscar() {
-		resultados= new Busqueda(usuario, RepositorioRecetas.getInstance,filtros).buscarReceta(nombre, dificultadSeleccionada, temporadaSeleccionada, null, caloriasDesde, caloriasHasta)
+		resultados= new Busqueda(usuario, RepositorioRecetas.getInstance,filtros).buscarReceta(nombre, dificultadSeleccionada, temporadaSeleccionada, ingredienteABuscar, caloriasDesde, caloriasHasta)
 	}
 	
 	def filtros() {

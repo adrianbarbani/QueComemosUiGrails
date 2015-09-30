@@ -14,6 +14,7 @@ class RepoDeTemporadas {
 
 	public new() {
 		todasLasTemporadas => [
+			add("")
 			add("Todo el año")
 			add("Otoño")
 			add("Invierno")

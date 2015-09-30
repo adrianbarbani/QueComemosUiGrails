@@ -18,6 +18,7 @@ class RepoDificultades {
 	
 	public new() {
 		todasLasDificultades => [
+			add("")
 			add("Dificil")
 			add("Facil")
 			add("Intermedia")

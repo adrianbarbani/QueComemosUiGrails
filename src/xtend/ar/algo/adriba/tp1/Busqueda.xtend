@@ -130,7 +130,7 @@ class Busqueda {
 	}
 					
 	def contiene(String ingrediente, Receta receta) {
-		if(ingrediente == null){
+		if(ingrediente == ""|| ingrediente== null){
 			return true
 		}else{
 		receta.tenes(ingrediente)
