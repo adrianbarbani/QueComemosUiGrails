@@ -2,7 +2,7 @@ Asset Pipeline controls asset depdencency by using a custom syntax with commands
 
 h3. Manifest Files
 
-In the grails asset pipeline, the concept of a manifest file exists. This is typically the root/parent javascript or css file which requires all of your application code. This file is then included into your application with a taglib.  Another comparison that can be made here is to the 'Resources Plugin' modules; The difference being, your manifest is kept within the source code of your javascript or css rather than within a seperate file you keep having to jump back to.
+In the grails asset pipeline, the concept of a manifest file exists. This is typically the root/parent javascript or css file which requires all of your application code. This file is then included into your application with a taglib.  Another comparison that can be made here is to the 'Resources Plugin' modules; The difference being, your manifest is kept within the source code of your javascript or css rather than within a separate file you keep having to jump back to.
 
 An example javascript manifest called 'application.js' might look like this:
 
