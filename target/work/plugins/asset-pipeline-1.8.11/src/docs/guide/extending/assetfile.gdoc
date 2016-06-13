@@ -82,7 +82,7 @@ String processedStream(Boolean precompiler) {
 
 The example above iterates over all of the processor classes defined in our static @processors@ variable. This creates a new instance and informs the processor whether this is a developer mode request or being issued by the precompiler (useful for determining if file replacements need to be cache digested or not). The @processedStream@ method is now a part of the @AbstractAssetFile@ definition and handles cache management if there are processors.
 
-h4. Adding the Asset definiton to the list of AssetFiles
+h4. Adding the Asset definition to the list of AssetFiles
 
 Originally, asset-pipeline took advantage of the Artefact syntax to generate this class list. However, this became problematic as it added a great deal of overhead to precompilation during War creation. To solve this, an @asset.pipeline.AssetHelper.assetSpecs@ static array was used instead. This array is used by both development mode runtime and war creation so it has to be added in 2 places. If you are creating a plugin to facilitate your added functionality, you will want to use the @doWithDynamicMethods@ to add your asset file.
 

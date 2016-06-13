@@ -9,7 +9,7 @@ Asset-Pipeline is intended to replace the defacto Grails equivalent [resources-p
 * On the fly processing - No more waiting for your assets to reload after making a change
 * Compiled assets on war create - No more hanging up application boot times while processing files. @grails war@
 * Reduced Dependence - The plugin has compression, minification, and cache-digests built in.
-* Easy Debugging - Makes for easy debugging by keeping files seperate in development mode.
+* Easy Debugging - Makes for easy debugging by keeping files separate in development mode.
 * Simpler manifests and taglibs - Read on for more information.
 
 h3. Additional Information
